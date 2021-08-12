@@ -80,9 +80,3 @@ session_start();
 <?php include 'sections/footer.sec.php'; ?>
  </body>
  </html>
-
-
-
-
-
-
