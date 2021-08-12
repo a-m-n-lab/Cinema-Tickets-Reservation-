@@ -48,7 +48,7 @@ class filme extends DBController{
 
 		$params = array(
 			array(
-				"param_type" => "s",
+				"param_type" => "i",
 				"param_value" => $product_code
 			)
 		);
@@ -145,8 +145,45 @@ class filme extends DBController{
 
 		$this->updateDB($query, $params);
 	}
+
+function addSeat($rand, $loc, $id_film, $data){
+ 	$query = "INSERT INTO locuri(rand, loc, id_film, data) VALUES (?, ?, ?, ?)";
+
+		$params = array(
+			array(
+				"param_type" => "s",
+				"param_value" => $rand
+			),
+			array(
+				"param_type" => "i",
+				"param_value" => $loc
+			),
+			array(
+				"param_type" => "i",
+				"param_value" => $id_film
+			),
+			array(
+				"param_type" => "s",
+				"param_value" => $data
+			)
+		);
+
+		$this->updateDB($query, $params);
 }
 
+function getMovieName($code){
+	$query = "SELECT name FROM filme WHERE code=?";
 
+	$params = array(
+		array(
+			"param_type" => "i",
+			"param_value" => $code
+		)
+	);
+	$cartResult = $this->getDBResult($query, $params);
+		return $cartResult;
 
+}
+
+}
  ?>
